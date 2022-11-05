@@ -12,7 +12,7 @@ export default function PostCard({ postObj, onUpdate }) {
     }
   };
   return (
-    <Card style={{ width: '25rem' }}>
+    <Card style={{ width: '25rem', margin: '5%' }}>
       <Card.Body>
         <div> {postObj.title}</div>
         <Card.Img variant="top" src={postObj.image_url} alt={postObj.title} style={{ height: '400px' }} />
@@ -34,14 +34,15 @@ export default function PostCard({ postObj, onUpdate }) {
 
 PostCard.propTypes = {
   postObj: PropTypes.shape({
-    id: PropTypes.string,
-    user_id: PropTypes.string,
-    category_id: PropTypes.string,
+    id: PropTypes.number,
+    user_id: PropTypes.number,
+    category_id: PropTypes.number,
+    category: PropTypes.number,
     title: PropTypes.string,
-    publication_date: PropTypes.number,
+    publication_date: PropTypes.string,
     image_url: PropTypes.string,
     content: PropTypes.string,
-    approved: PropTypes.string,
+    approved: PropTypes.number,
     // first_name: PropTypes.string,
     // reaction_id: PropTypes.string,
   }).isRequired,
