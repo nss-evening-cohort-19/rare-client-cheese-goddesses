@@ -5,3 +5,5 @@ export const deletePost = (id) => fetch(`http://localhost:8088/posts/${id}`, {
 
 export const getPostById = (id) => fetch(`http://localhost:8088/posts/${id}`)
   .then((res) => res.json());
+
+// working on post data
