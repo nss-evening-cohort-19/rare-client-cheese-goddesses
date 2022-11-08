@@ -5,32 +5,32 @@ import PropTypes from 'prop-types';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
-import { loginUser } from '../../utils/data/AuthManager';
+// import { loginUser } from '../../utils/data/AuthManager';
 import { createPost, updatePost } from '../../api/postData';
 
 const initialState = {
   name: ' ',
-  id: ' ',
-  user_id: ' ',
-  category_id: ' ',
-  category: ' ',
+  // id: ' ',
+  // user_id: ' ',
+  // category_id: ' ',
+  // category: ' ',
   title: ' ',
-  publication_date: ' ',
+  // publication_date: ' ',
   image_url: ' ',
   content: ' ',
-  approved: ' ',
+  // approved: ' ',
   // first_name: ' ',
   // reaction_id: ' ',
 };
 
 export default function PostForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
-  const { user } = loginUser('res');
+  // const { user } = loginUser('res');
   const router = useRouter();
 
   useEffect(() => {
     if (obj.id)setFormInput(obj);
-  }, [obj, user]);
+  }, [obj]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
