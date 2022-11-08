@@ -1,21 +1,23 @@
 /* eslint-disable max-len */
-// import { useRouter } from 'next/router';
-// import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { Badge, Button, Card } from 'react-bootstrap';
+import { getPostById } from '../../api/postData';
 
 export default function PostsPage() {
-  // const [postDetails, setPostDetails] = useState();
-  // const router = useRouter();
+  const [postDetails, setPostDetails] = useState();
+  const router = useRouter();
 
-  // const { id } = router.query;
+  const { id } = router.query;
 
-  // useEffect(() => {
-  // }, [id]);
+  useEffect(() => {
+    getPostById(id).then(setPostDetails);
+  }, [id]);
 
   return (
     <Card className="text-center">
-      <Card.Title>Title</Card.Title>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Title>{postDetails.title}</Card.Title>
+      <Card.Img variant="top" src={postDetails.image_url} />
       <Card.Body>
         <Card.Text>Author: soandso</Card.Text>
         <Button>View Comments</Button>
@@ -31,7 +33,7 @@ export default function PostsPage() {
         <Badge pill bg="primary">
           🤬
         </Badge>
-        <Card.Text>Post Details</Card.Text>
+        <Card.Text>{postDetails.content}</Card.Text>
       </Card.Body>
     </Card>
   );
