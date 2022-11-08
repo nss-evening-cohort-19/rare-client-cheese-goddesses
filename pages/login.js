@@ -21,7 +21,7 @@ function Login({ setToken }) {
     loginUser(user).then((res) => {
       if ('valid' in res && res.valid) {
         setToken(res.token);
-        navigate.push('/');
+        navigate.push('/Posts/new');
       } else {
         setisUnsuccessful(true);
       }
