@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const deletePost = (id) => fetch(`http://localhost:8088/posts/${id}`, {
   method: 'DELETE',
 });
