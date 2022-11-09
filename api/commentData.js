@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // eslint-disable-next-line import/prefer-default-export
 export const deleteComment = (id) => fetch(`http://localhost:8088/comments/${id}`, {
   method: 'DELETE',
@@ -24,3 +26,16 @@ export const updateComment = (comment) => fetch(`http://localhost:8088/comment/$
   },
   body: JSON.stringify(comment),
 });
+
+export const getCommentByPostId = (post_id) => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/comments.json?orderBy="id"&equalTo="${post_id}"`)
+    .then((response) => {
+      if (response?.data) {
+        resolve(Object.values(response.data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+  });
