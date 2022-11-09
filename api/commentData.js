@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 // eslint-disable-next-line import/prefer-default-export
 export const deleteComment = (id) => fetch(`http://localhost:8088/comments/${id}`, {
