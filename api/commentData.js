@@ -29,7 +29,7 @@ export const updateComment = (comment) => fetch(`http://localhost:8088/comment/$
 
 export const getCommentByPostId = (post_id) => new Promise((resolve, reject) => {
   axios
-    .get(`${dbUrl}/comments.json?orderBy="id"&equalTo="${post_id}"`)
+    .get(`http://localhost:8088/comments.json?orderBy="id"&equalTo="${post_id}"`)
     .then((response) => {
       if (response?.data) {
         resolve(Object.values(response.data));
