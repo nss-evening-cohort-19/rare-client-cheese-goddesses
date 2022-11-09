@@ -38,4 +38,4 @@ export const getCommentByPostId = (post_id) => new Promise((resolve, reject) => 
       }
     })
     .catch(reject);
-  });
+});
