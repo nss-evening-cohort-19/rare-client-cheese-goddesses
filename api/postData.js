@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 
+/* eslint-disable no-console */
+
 const deletePost = (id) => fetch(`http://localhost:8088/posts/${id}`, {
   method: 'DELETE',
 });

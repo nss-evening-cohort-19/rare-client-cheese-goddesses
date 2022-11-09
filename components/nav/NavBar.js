@@ -20,9 +20,20 @@ function AppNavBar({ token, setToken }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             {token ? (
-              <Link passHref href="/">
-                <Nav.Link>Posts</Nav.Link>
-              </Link>
+              <div>
+                <Link passHref href="/">
+                  <Nav.Link> All Posts</Nav.Link>
+                </Link>
+                <Link passHref href="/Posts/new">
+                  <Nav.Link> Add new post</Nav.Link>
+                </Link>
+                {/* <Link passHref href="/Posts/myPosts">
+                  <Nav.Link>My posts</Nav.Link>
+                </Link>
+                <Link passHref href="/Categories/allCategories">
+                  <Nav.Link> All Categories</Nav.Link>
+                </Link> */}
+              </div>
             ) : (
               ''
             )}
@@ -33,7 +44,7 @@ function AppNavBar({ token, setToken }) {
                 className="button is-outlined"
                 onClick={() => {
                   setToken('');
-                  navigate('/login');
+                  navigate.push('/login');
                 }}
               >
                 Logout
