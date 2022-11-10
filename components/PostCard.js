@@ -22,11 +22,11 @@ export default function PostCard({ postObj, onUpdate }) {
         <Link href={`/posts/edit/${postObj.id}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
-        <Link href="/" passHref>
-          <Button variant="danger" onClick={deleteThisPost} className="m-2">
-            DELETE
-          </Button>
-        </Link>
+        {/* <Link href="/" passHref> */}
+        {/* Removed link to check navigation after deleting post card */}
+        <Button variant="danger" onClick={deleteThisPost} className="m-2">
+          DELETE
+        </Button>
       </Card.Body>
     </Card>
   );
