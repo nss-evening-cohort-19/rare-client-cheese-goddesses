@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 // import { loginUser } from '../../utils/data/AuthManager';
 import { createPost, updatePost } from '../../api/postData';
+import { getCategories } from '../../api/categoryData';
 
 const initialState = {
   name: ' ',
@@ -21,12 +22,20 @@ const initialState = {
   approved: ' ',
   first_name: ' ',
   reaction_id: ' ',
+  label: ' ',
 };
 
 export default function PostForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
+  const [categories, setCategories] = useState([]);
   // const { user } = loginUser('res');
   const router = useRouter();
+
+  useEffect(() => {
+    getCategories().then(setCategories);
+
+    if (obj) setFormInput(obj);
+  }, [obj]);
 
   useEffect(() => {
     if (obj.id)setFormInput(obj);
@@ -68,16 +77,25 @@ export default function PostForm({ obj }) {
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
           aria-label="Category"
-          name="category"
+          name="label"
           type="text"
-          value={formInput.category}
+          value={formInput.label}
           onChange={handleChange}
           className="mb-3"
           required
         >
-          <option value="">Category</option>
-          <option value="News">News</option>
-          <option value="Business">Business</option>
+          <option value="">Select a Catergory </option>
+          {
+            categories.map((category) => (
+              <option
+                // key={category.id}
+                // value={category.label}
+                selected={obj.id === category.id}
+              >
+                {category.label}
+              </option>
+            ))
+          }
         </Form.Select>
       </FloatingLabel>
       <Button type="submit">{obj.id ? 'Update' : 'Create'} Post</Button>
