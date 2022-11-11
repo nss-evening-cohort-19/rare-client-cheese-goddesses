@@ -11,6 +11,7 @@ export default function PostsPage() {
 
   useEffect(() => {
     getPostById(id).then(setPostDetail);
+    console.log(postDetail);
   }, [id]);
 
   return (
