@@ -11,16 +11,16 @@ import { createPost, updatePost } from '../../api/postData';
 const initialState = {
   name: ' ',
   // id: ' ',
-  user_id: ' ',
-  category_id: ' ',
+  user_id: null,
+  category_id: null,
   category: ' ',
   title: ' ',
   publication_date: ' ',
   image_url: ' ',
   content: ' ',
-  approved: ' ',
+  approved: null,
   first_name: ' ',
-  reaction_id: ' ',
+  reaction_id: null,
 };
 
 export default function PostForm({ obj }) {
@@ -87,15 +87,15 @@ export default function PostForm({ obj }) {
 
 PostForm.propTypes = {
   obj: PropTypes.shape({
-    id: PropTypes.string,
-    user_id: PropTypes.string,
-    category_id: PropTypes.string,
+    id: PropTypes.number,
+    user_id: PropTypes.number,
+    category_id: PropTypes.number,
     category: PropTypes.string,
     title: PropTypes.string,
     publication_date: PropTypes.string,
     image_url: PropTypes.string,
     content: PropTypes.string,
-    approved: PropTypes.string,
+    approved: PropTypes.number,
     // first_name: PropTypes.string,
     // reaction_id: PropTypes.string,
   }),
