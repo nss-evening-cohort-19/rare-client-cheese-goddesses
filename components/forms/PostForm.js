@@ -87,15 +87,15 @@ export default function PostForm({ obj }) {
 
 PostForm.propTypes = {
   obj: PropTypes.shape({
-    id: PropTypes.string,
-    user_id: PropTypes.string,
-    category_id: PropTypes.string,
+    id: PropTypes.number,
+    user_id: PropTypes.number,
+    category_id: PropTypes.number,
     category: PropTypes.string,
     title: PropTypes.string,
     publication_date: PropTypes.string,
     image_url: PropTypes.string,
     content: PropTypes.string,
-    approved: PropTypes.string,
+    approved: PropTypes.bool,
     // first_name: PropTypes.string,
     // reaction_id: PropTypes.string,
   }),
