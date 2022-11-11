@@ -1,38 +1,21 @@
-/* eslint-disable max-len */
-// import { useRouter } from 'next/router';
-// import { useState } from 'react';
-import { Badge, Button, Card } from 'react-bootstrap';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { getPostById } from '../../api/postData';
+import PostsDetails from '../../components/PostDetails';
 
 export default function PostsPage() {
-  // const [postDetails, setPostDetails] = useState();
-  // const router = useRouter();
+  const [postDetail, setPostDetail] = useState();
+  const router = useRouter();
 
-  // const { id } = router.query;
+  const { id } = router.query;
 
-  // useEffect(() => {
-  // }, [id]);
-
+  useEffect(() => {
+    getPostById(id).then(setPostDetail);
+  }, [id]);
+  console.log(postDetail);
   return (
-    <Card className="text-center">
-      <Card.Title>Title</Card.Title>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Text>Author: soandso</Card.Text>
-        <Button>View Comments</Button>
-        <Badge pill bg="primary">
-          😍
-        </Badge>
-        <Badge pill bg="primary">
-          🤯
-        </Badge>
-        <Badge pill bg="primary">
-          🤔
-        </Badge>
-        <Badge pill bg="primary">
-          🤬
-        </Badge>
-        <Card.Text>Post Details</Card.Text>
-      </Card.Body>
-    </Card>
+    <div className="center-page">
+      <PostsDetails key={postDetail?.id} postObj={postDetail} />
+    </div>
   );
 }

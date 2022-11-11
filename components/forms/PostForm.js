@@ -7,35 +7,26 @@ import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 // import { loginUser } from '../../utils/data/AuthManager';
 import { createPost, updatePost } from '../../api/postData';
-import { getCategories } from '../../api/categoryData';
 
 const initialState = {
   name: ' ',
   // id: ' ',
-  user_id: ' ',
-  category_id: ' ',
+  user_id: null,
+  category_id: null,
   category: ' ',
   title: ' ',
   publication_date: ' ',
   image_url: ' ',
   content: ' ',
-  approved: ' ',
+  approved: null,
   first_name: ' ',
-  reaction_id: ' ',
-  label: ' ',
+  reaction_id: null,
 };
 
 export default function PostForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
-  const [categories, setCategories] = useState([]);
   // const { user } = loginUser('res');
   const router = useRouter();
-
-  useEffect(() => {
-    getCategories().then(setCategories);
-
-    if (obj) setFormInput(obj);
-  }, [obj]);
 
   useEffect(() => {
     if (obj.id)setFormInput(obj);
@@ -77,25 +68,19 @@ export default function PostForm({ obj }) {
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
           aria-label="Category"
-          name="label"
+          name="category"
           type="text"
-          value={formInput.label}
+          value={formInput.category}
           onChange={handleChange}
           className="mb-3"
           required
         >
-          <option value="">Select a Catergory </option>
-          {
-            categories.map((category) => (
-              <option
-                // key={category.id}
-                // value={category.label}
-                selected={obj.id === category.id}
-              >
-                {category.label}
-              </option>
-            ))
-          }
+          <option value="">Category</option>
+          <option value="News">News</option>
+          <option value="Business">Business</option>
+          <option value="Hobbies">Hobbies</option>
+          <option value="Education">Education</option>
+          <option value="Other">Other</option>
         </Form.Select>
       </FloatingLabel>
       <Button type="submit">{obj.id ? 'Update' : 'Create'} Post</Button>
@@ -105,15 +90,15 @@ export default function PostForm({ obj }) {
 
 PostForm.propTypes = {
   obj: PropTypes.shape({
-    id: PropTypes.string,
-    user_id: PropTypes.string,
-    category_id: PropTypes.string,
+    id: PropTypes.number,
+    user_id: PropTypes.number,
+    category_id: PropTypes.number,
     category: PropTypes.string,
     title: PropTypes.string,
     publication_date: PropTypes.string,
     image_url: PropTypes.string,
     content: PropTypes.string,
-    approved: PropTypes.string,
+    approved: PropTypes.number,
     // first_name: PropTypes.string,
     // reaction_id: PropTypes.string,
   }),
