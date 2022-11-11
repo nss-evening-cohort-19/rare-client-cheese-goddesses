@@ -3,8 +3,17 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
+import { deletePost } from '../api/postData';
 
-export default function PostCard({ postObj }) {
+export default function PostCard({ postObj, onUpdate }) {
+  const deleteThisPost = () => {
+    if (window.confirm(`Delete ${postObj.title}?`)) {
+      deletePost(postObj.id).then(() => {
+        onUpdate();
+        window.location.reload();
+      });
+    }
+  };
   return (
     <Card style={{ width: '25rem', margin: '5%' }}>
       <Card.Body>
@@ -16,6 +25,9 @@ export default function PostCard({ postObj }) {
         <Link href={`/Posts/edit/${postObj.id}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
+        <Button variant="danger" onClick={deleteThisPost} className="m-2">
+          DELETE
+        </Button>
       </Card.Body>
     </Card>
   );
@@ -35,4 +47,5 @@ PostCard.propTypes = {
     // first_name: PropTypes.string,
     // reaction_id: PropTypes.string,
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
