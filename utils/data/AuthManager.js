@@ -9,6 +9,7 @@ export const loginUser = (user) => fetch('http://localhost:8088/login', {
     password: user.password,
   }),
 }).then((res) => res.json());
+// }).then((res) => res);
 
 export const registerUser = (newUser) => fetch('http://localhost:8088/register', {
   method: 'POST',

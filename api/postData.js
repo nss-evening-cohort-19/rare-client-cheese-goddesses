@@ -1,31 +1,47 @@
-// eslint-disable-next-line import/prefer-default-export
-export const deletePost = (id) => fetch(`http://localhost:8088/posts/${id}`, {
+/* eslint-disable no-console */
+
+/* eslint-disable no-console */
+
+const deletePost = (id) => fetch(`http://localhost:8088/posts/${id}`, {
   method: 'DELETE',
 });
 
-export const getPostById = (id) => fetch(`http://localhost:8088/posts/${id}`)
+const getPostById = (id) => fetch(`http://localhost:8088/posts/${id}`)
   .then((res) => res.json());
 
-export const getPosts = () => fetch('http://localhost:8088/posts')
+const getPosts = () => fetch('http://localhost:8088/posts')
   .then((res) => res.json());
 
-export const updatePostById = (payload) => fetch(`http://localhost:8088/posts/${payload.id}`, {
-  method: 'PUT',
-  body: JSON.stringify(payload),
-}).then((res) => res.json());
-
-export const createPost = (post) => fetch('http://localhost:8088/posts', {
+const createPost = (post) => fetch('http://localhost:8088/posts', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify(post),
-});
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 
-export const updatePost = (post) => fetch(`http://localhost:8088/posts/${post.id}`, {
+const updatePost = (post) => fetch(`http://localhost:8088/posts/${post.id}`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify(post),
-});
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+
+export {
+  deletePost, getPostById, getPosts, createPost, updatePost,
+};
