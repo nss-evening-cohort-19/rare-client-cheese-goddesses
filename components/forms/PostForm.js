@@ -11,16 +11,16 @@ import { createPost, updatePost } from '../../api/postData';
 const initialState = {
   name: ' ',
   // id: ' ',
-  // user_id: ' ',
-  // category_id: ' ',
-  // category: ' ',
+  user_id: ' ',
+  category_id: ' ',
+  category: ' ',
   title: ' ',
-  // publication_date: ' ',
+  publication_date: ' ',
   image_url: ' ',
   content: ' ',
-  // approved: ' ',
-  // first_name: ' ',
-  // reaction_id: ' ',
+  approved: ' ',
+  first_name: ' ',
+  reaction_id: ' ',
 };
 
 export default function PostForm({ obj }) {
