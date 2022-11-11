@@ -64,15 +64,15 @@ PostsDetails.propTypes = {
 };
 PostsDetails.defaultProps = {
   postObj: PropTypes.shape({
-    id: '',
-    user_id: '',
+    id: null,
+    user_id: null,
     username: '',
     title: '',
     publication_date: '',
     image_url: '',
     content: '',
     category_label: '',
-    category_id: '',
+    category_id: null,
     love_reaction: 0,
     mind_blown_reaction: 0,
     thought_reaction: 0,

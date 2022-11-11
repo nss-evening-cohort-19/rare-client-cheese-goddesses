@@ -31,7 +31,7 @@ PostCard.propTypes = {
     publication_date: PropTypes.string,
     image_url: PropTypes.string,
     content: PropTypes.string,
-    approved: PropTypes.bool,
+    approved: PropTypes.number,
     // first_name: PropTypes.string,
     // reaction_id: PropTypes.string,
   }).isRequired,
