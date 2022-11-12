@@ -30,9 +30,9 @@ function AppNavBar({ token, setToken }) {
                 {/* <Link passHref href="/Posts/myPosts">
                   <Nav.Link>My posts</Nav.Link>
                 </Link> */}
-                <Link passHref href="/Categories/myCategories">
+                {/* <Link passHref href="/Categories/myCategories">
                   <Nav.Link>Category Manager</Nav.Link>
-                </Link>
+                </Link> */}
               </div>
             ) : (
               ''

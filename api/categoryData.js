@@ -13,5 +13,13 @@ export const createCategory = (post) => fetch('http://localhost:8088/categories'
   body: JSON.stringify(post),
 });
 
+export const updateCategory = (category) => fetch(`http://localhost:8088/comment/${category.id}`, {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(category),
+});
+
 export const getCategories = () => fetch('http://localhost:8088/categories')
   .then((res) => res.json());
