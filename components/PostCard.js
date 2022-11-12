@@ -14,6 +14,7 @@ export default function PostCard({ postObj, onUpdate }) {
       });
     }
   };
+
   return (
     <Card style={{ width: '25rem', margin: '5%' }}>
       <Card.Body>
