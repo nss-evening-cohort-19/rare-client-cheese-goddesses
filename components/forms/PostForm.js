@@ -78,6 +78,9 @@ export default function PostForm({ obj }) {
           <option value="">Category</option>
           <option value="News">News</option>
           <option value="Business">Business</option>
+          <option value="Hobbies">Hobbies</option>
+          <option value="Education">Education</option>
+          <option value="Other">Other</option>
         </Form.Select>
       </FloatingLabel>
       <Button type="submit">{obj.id ? 'Update' : 'Create'} Post</Button>
