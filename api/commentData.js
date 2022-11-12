@@ -5,7 +5,8 @@ export const deleteComment = (id) => fetch(`http://localhost:8088/comments/${id}
   method: 'DELETE',
 });
 
-export const getCommentById = (id) => fetch(`http://localhost:8088/comments/${id}`)
+export const getCommentById = (id) => fetch(`http://localhost:8088/comments.${id}?orderBy="post_id"&equalTo=${id}`)
+// http://localhost:8088/comments/1?orderBy="post_id"&equalTo=1
   .then((res) => res.json());
 
 export const getComments = () => fetch('http://localhost:8088/comments')
