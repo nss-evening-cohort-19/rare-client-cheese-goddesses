@@ -14,6 +14,7 @@ export default function CommentsPage() {
   }, [id]);
   return (
     <div className="center-page">
+      testing
       <PostsDetails key={commentDetail?.id} postObj={commentDetail} />
     </div>
   );
