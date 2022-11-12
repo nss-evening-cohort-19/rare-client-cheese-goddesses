@@ -23,7 +23,7 @@ export default function PostsDetails({ postObj }) {
       <Card.Body>
         <span>
           <Card.Text>By {postObj.username}</Card.Text>
-          <Button href={`/Comments/${postObj.id}`}>View Comments</Button>
+          <Button href={`/comments/${postObj.id}`}>View Comments</Button>
           <div>
             <Badge pill bg="primary">
               😍 {postObj.love_reaction}
