@@ -14,7 +14,7 @@ function Home() {
   return (
     <>
       <Link href="/Posts/new" passHref>
-        <Button style={{ backgroundColor: '#84190B' }} variant="info" className="m-2">New Post</Button>
+        <Button style={{ backgroundColor: '#F1E6D4' }} variant="info" className="m-2">New Post</Button>
       </Link>
       <div className="d-flex flex-wrap">
         {posts.map((post) => (
