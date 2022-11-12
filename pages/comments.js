@@ -1,17 +1,17 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getCommentById } from '../../api/commentData';
-import PostsDetails from '../../components/PostDetails';
+import PostsDetails from '../components/PostDetails';
+import { getCommentByPostId } from '../api/commentData';
 
 export default function CommentsPage() {
   const [commentDetail, setCommentDetail] = useState();
   const router = useRouter();
-
-  const { id } = router.query;
+  const path = router.asPath.split('/')[2];
 
   useEffect(() => {
-    getCommentById(id).then(setCommentDetail);
-  }, [id]);
+    getCommentByPostId(path).then(setCommentDetail);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className="center-page">
       testing
