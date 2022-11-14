@@ -23,7 +23,7 @@ export default function PostsDetails({ postObj }) {
       <Card.Body>
         <span>
           <Card.Text>By {postObj.username}</Card.Text>
-          <Button href={`/comments/${postObj.id}`}>View Comments</Button>
+          <Button href={`comments/post/post_id=${postObj.postId}`}>View Comments</Button>
           <div>
             <Badge pill bg="primary">
               😍 {postObj.love_reaction}
@@ -48,6 +48,7 @@ export default function PostsDetails({ postObj }) {
 PostsDetails.propTypes = {
   postObj: PropTypes.shape({
     id: PropTypes.number,
+    postId: PropTypes.number,
     user_id: PropTypes.number,
     username: PropTypes.string,
     title: PropTypes.string,
@@ -66,6 +67,7 @@ PostsDetails.defaultProps = {
   postObj: PropTypes.shape({
     id: null,
     user_id: null,
+    postId: null,
     username: '',
     title: '',
     publication_date: '',
